@@ -99,7 +99,7 @@ This project was created to combine **AI**, **automation**, and **modern fronten
 
 ---
 ## 🌐 Live Demo
-👉 [Visit the Live Website](https://blog-summarizer-topaz.vercel.app/)
+👉 [Visit the Live Website](https://internship-five-omega.vercel.app/)
 
 👉 [Watch Demo Video](https://youtu.be/eYuG3MMAu58)
 Note: Voice may be low in video so use a handsfree 
