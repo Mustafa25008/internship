@@ -1,73 +1,111 @@
-# Welcome to your Lovable project
+# 🍳 AI-Powered Recipe Generator(Recipe Magic)
 
-## Project info
+A fast and modern web application that generates creative recipes using AI, stores them in Supabase, and displays them on a dynamic dashboard. Backend logic is automated via n8n workflows. Built with Vite, TypeScript, and modern UI tools.
 
-**URL**: https://lovable.dev/projects/8542c3a6-7998-4e17-8742-0c6a326e5d4b
+---
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+- 🤖 AI-generated recipes based on user-selected topics
+- ⚡ Superfast frontend using Vite + React + TypeScript
+- 🗂️ Supabase integration for structured data storage
+- 🔁 Automated backend flows with n8n
+- 🎨 Beautiful and accessible UI with Tailwind CSS + shadcn/ui
+- 🌐 Responsive dashboard for recipe viewing
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8542c3a6-7998-4e17-8742-0c6a326e5d4b) and start prompting.
+## 📦 Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+| Technology       | Purpose                                   |
+|------------------|-------------------------------------------|
+| **Vite**         | Lightning-fast frontend build tool        |
+| **React**        | UI library for component-based design     |
+| **TypeScript**   | Type safety and better dev experience     |
+| **Tailwind CSS** | Utility-first styling framework           |
+| **shadcn/ui**    | Prebuilt accessible UI components         |
+| **Supabase**     | Database and authentication               |
+| **n8n**          | Workflow automation and API orchestration |
+| **Gemini AI**    | Recipe generation via AI                  |
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Setup Instructions
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 1. Clone the Repository
 
-Follow these steps:
+```bash
+git clone https://github.com/yourusername/ai-recipe-generator.git
+cd ai-recipe-generator
+````
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 2. Install Dependencies
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```bash
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 3. Configure Environment Variables
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Create a `.env` file in the root directory with:
+
+```env
+VITE_SUPABASE_URL=your-supabase-url
+VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+VITE_N8N_WEBHOOK_URL=your-n8n-webhook-endpoint
+```
+
+### 4. Start the Development Server
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Then visit localhost link in your browser.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 📡 n8n Workflow Overview
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+* **Webhook Trigger** – Accepts topic input from frontend
+* **AI Agent Node** – Generates 3 recipe responses
+* **Function Node** – Parses and formats to JSON
+* **Supabase Node** – Stores recipe entries
+* **Response Node** – Sends structured JSON back to the frontend
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 📊 Dashboard UI
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The UI fetches recipes from Supabase and displays them using clean cards and components. Key features:
 
-## How can I deploy this project?
+* Enter Recipe name to generate via `<input />` (shadcn/ui)
+* AI recipe generation
+* Loading and error feedback
+* Scalable and modular design
 
-Simply open [Lovable](https://lovable.dev/projects/8542c3a6-7998-4e17-8742-0c6a326e5d4b) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## 🧠 Inspiration
 
-Yes, you can!
+This project was created to combine **AI**, **automation**, and **modern frontend development** into a single workflow — proving that full-stack apps can be fast, clean, and free to deploy using tools like n8n and Supabase.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🧹 TODO
+
+* [ ] Add AI-generated recipe images
+* [ ] Show User name on public recipe in Dicover Tab
+
+---
+## 🌐 Live Demo
+👉 [Visit the Live Website](https://blog-summarizer-topaz.vercel.app/)
+
+👉 [Watch Demo Video]()
+
+---
+# 👨‍💻 Author
+
+Muhammad Mustafa
+
+```
