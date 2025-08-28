@@ -38,6 +38,7 @@ import {
 import heroImage from "@/assets/hero-cooking.jpg";
 import { AddRecipeForm } from "./AddRecipeForm";
 import { RecipeDetailModal } from "./RecipeDetailModal";
+import { constructNow } from "date-fns";
 
 interface Recipe {
   id: string;
@@ -205,17 +206,21 @@ export function RecipeDashboard() {
     const recipeName = recipePrompt
       .replace(/write a recipe of|recipe of|recipe for|make|cook/gi, "")
       .trim();
-    const capitalizedName =
-      recipeName.charAt(0).toUpperCase() + recipeName.slice(1);
+    const capitalizedName = recipeName.charAt(0).toUpperCase() + recipeName.slice(1);
     const webhookURL = import.meta.env.VITE_WEBHOOK_URL;
     try {
+      toast({
+        title: "Generating recipe...",
+        description: "This may take a moment. Please wait.",
+        duration: 5000,
+        variant: "default",
+      });
       //const res = await fetch("http://localhost:5678/webhook/test", {
       const res = await fetch(webhookURL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: recipePrompt }),
       });
-
       const data = await res.json();
       const outputText = data[0].output;
 
