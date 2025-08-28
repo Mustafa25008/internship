@@ -209,12 +209,14 @@ export function RecipeDashboard() {
     const capitalizedName = recipeName.charAt(0).toUpperCase() + recipeName.slice(1);
     const webhookURL = import.meta.env.VITE_WEBHOOK_URL;
     try {
+      console.log("Sending request to webhook:", webhookURL);
       toast({
         title: "Generating recipe...",
         description: "This may take a moment. Please wait.",
         duration: 5000,
         variant: "default",
       });
+      console.log("Recipe Prompt:", recipePrompt);
       //const res = await fetch("http://localhost:5678/webhook/test", {
       const res = await fetch(webhookURL, {
         method: "POST",
@@ -222,7 +224,9 @@ export function RecipeDashboard() {
         body: JSON.stringify({ text: recipePrompt }),
       });
       const data = await res.json();
+      console.log("AI Response:", data);
       const outputText = data[0].output;
+      console.log("AI Output:", outputText);
 
       // Extract fields from the plain text
       const titleMatch = outputText.match(/Title:\s*(.+)/);
