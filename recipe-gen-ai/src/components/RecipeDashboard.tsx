@@ -373,7 +373,7 @@ export function RecipeDashboard() {
         <Tabs defaultValue="recipes" className="space-y-6">
           <TabsList className="grid w-full grid-cols-2 max-w-md">
             <TabsTrigger value="recipes">My Recipes</TabsTrigger>
-            <TabsTrigger value="discover">Discover</TabsTrigger>
+            <TabsTrigger value="discover" onClick={fetchPublicRecipes}>Discover</TabsTrigger>
           </TabsList>
 
           <TabsContent value="recipes" className="space-y-6">
@@ -472,7 +472,7 @@ export function RecipeDashboard() {
                             )}
                           </div>
                         </div>
-                        <CardDescription>{recipe.description}</CardDescription>
+                        <CardDescription className="text-justify">{recipe.description}</CardDescription>
                       </CardHeader>
                       <CardContent>
                         <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -494,7 +494,7 @@ export function RecipeDashboard() {
             )}
           </TabsContent>
 
-          <TabsContent value="discover" className="space-y-6">
+          <TabsContent value="discover" className="space-y-6 " >
             <div className="flex justify-between items-center">
               <div>
                 <h3 className="text-2xl font-bold mb-2">
@@ -563,7 +563,7 @@ export function RecipeDashboard() {
                           </div>
                         </div>
                       </div>
-                      <CardDescription>{recipe.description}</CardDescription>
+                      <CardDescription className="text-justify">{recipe.description}</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="flex items-center gap-4 text-sm text-muted-foreground">

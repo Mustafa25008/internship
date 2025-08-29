@@ -36,7 +36,7 @@ export function RecipeDetailModal({ recipe, isOpen, onClose }: RecipeDetailModal
           <div className="flex items-start justify-between margin-right-4 bg-background p-4 rounded-lg shadow-sm">
             <div>
               <DialogTitle className="text-2xl font-bold mb-2">{recipe.title}</DialogTitle>
-              <p className="text-muted-foreground">{recipe.description}</p>
+              <p className="text-muted-foreground text-justify">{recipe.description}</p>
             </div>
             <Badge className='min-w-[110px] px-2 py-1'
             variant={recipe.is_ai_generated ? "default" : "secondary"}>
@@ -98,7 +98,7 @@ export function RecipeDetailModal({ recipe, isOpen, onClose }: RecipeDetailModal
             {/* Instructions */}
             <div>
               <h3 className="text-lg font-semibold mb-3">Instructions</h3>
-              <ol className="space-y-3">
+              <ol className="space-y-3 text-justify">
                 {recipe.instructions.map((instruction, index) => (
                   <li key={index} className="flex gap-3">
                     <span className="flex-shrink-0 w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-medium">
