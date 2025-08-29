@@ -217,7 +217,6 @@ export function RecipeDashboard() {
         variant: "default",
       });
       console.log("Recipe Prompt:", recipePrompt);
-      //const res = await fetch("http://localhost:5678/webhook/test", {
       const res = await fetch(webhookURL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -281,6 +280,7 @@ export function RecipeDashboard() {
           title: "Recipe generated!",
           description: "Your AI recipe has been created.",
         });
+        setRecipePrompt("");
         fetchUserData();
       }
     } catch (error) {
