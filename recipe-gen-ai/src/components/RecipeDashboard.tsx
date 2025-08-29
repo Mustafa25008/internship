@@ -373,7 +373,7 @@ export function RecipeDashboard() {
         <Tabs defaultValue="recipes" className="space-y-6">
           <TabsList className="grid w-full grid-cols-2 max-w-md">
             <TabsTrigger value="recipes">My Recipes</TabsTrigger>
-            <TabsTrigger value="discover" onClick={fetchPublicRecipes}>Discover</TabsTrigger>
+            <TabsTrigger value="discover">Discover</TabsTrigger>
           </TabsList>
 
           <TabsContent value="recipes" className="space-y-6">
