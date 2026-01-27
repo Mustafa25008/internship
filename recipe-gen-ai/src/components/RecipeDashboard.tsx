@@ -223,7 +223,6 @@ export function RecipeDashboard() {
         body: JSON.stringify({ text: recipePrompt }),
       });
       const data = await res.json();
-      console.log("AI Response:", data);
       const outputText = data[0].output;
       console.log("AI Output:", outputText);
 
@@ -236,6 +235,7 @@ export function RecipeDashboard() {
       const instructionsMatch = outputText.match(
         /Instructions:\n([\s\S]*?)\n\nprep_time/
       );
+      
       const prepTimeMatch = outputText.match(/prep_time in minutes:\s*(\d+)/);
       const cookTimeMatch = outputText.match(/cook_time in minutes:\s*(\d+)/);
       const servingsMatch = outputText.match(/servings:\s*(\d+)/);
@@ -250,7 +250,7 @@ export function RecipeDashboard() {
         ingredients:
           ingredientsMatch?.[1]
             ?.split("\n")
-            .map((line) => line.replace(/^[\*\-\d\.\s]+/, "").trim())
+            .map((line) => line.replace(/^[\*\-\.\s]+/, "").trim())
             .filter(Boolean) || [],
         instructions:
           instructionsMatch?.[1]
