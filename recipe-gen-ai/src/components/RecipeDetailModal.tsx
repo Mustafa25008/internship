@@ -33,27 +33,27 @@ export function RecipeDetailModal({ recipe, isOpen, onClose }: RecipeDetailModal
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <div className="flex items-start justify-between margin-right-4 bg-background p-4 rounded-lg shadow-sm">
-            <div>
-              <DialogTitle className="text-2xl font-bold mb-2">{recipe.title}</DialogTitle>
-              <p className="text-muted-foreground text-justify">{recipe.description}</p>
+          <div className="flex flex-col sm:flex-row items-start justify-between gap-4 bg-background p-4 rounded-lg shadow-sm">
+            <div className="flex-1">
+              <DialogTitle className="text-xl sm:text-2xl font-bold mb-2">{recipe.title}</DialogTitle>
+              <p className="text-sm sm:text-base text-muted-foreground text-justify">{recipe.description}</p>
             </div>
-            <Badge className='min-w-[110px] px-2 py-1'
+            <Badge className='min-w-[110px] px-2 py-1 shrink-0 justify-center'
             variant={recipe.is_ai_generated ? "default" : "secondary"}>
-              {recipe.is_ai_generated ? 'AI Generated me' : 'Added Recipe'}
+              {recipe.is_ai_generated ? 'AI Generated' : 'Added Recipe'}
             </Badge>
           </div>
         </DialogHeader>
 
         <div className="space-y-6">
           {/* Recipe Stats */}
-          <div className="flex items-center gap-6 p-4 bg-muted/50 rounded-lg">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 p-4 bg-muted/50 rounded-lg">
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-muted-foreground" />
               <span className="text-sm">
                 <span className="font-medium">{totalTime}m</span> total
                 {recipe.prep_time && recipe.cook_time && (
-                  <span className="text-muted-foreground ml-1">
+                  <span className="text-muted-foreground ml-1 hidden sm:inline">
                     ({recipe.prep_time}m prep + {recipe.cook_time}m cook)
                   </span>
                 )}

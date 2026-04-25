@@ -305,27 +305,27 @@ export function RecipeDashboard() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b bg-card">
+      <header className="border-b bg-card sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex flex-col sm:flex-row justify-between items-center py-4 sm:h-16 gap-4 sm:gap-0">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                 <ChefHat className="w-4 h-4 text-primary-foreground" />
               </div>
               <h1 className="text-xl font-bold">Recipe Magic</h1>
             </div>
-            <div className="flex items-center gap-4">
-              <span className="text-sm text-muted-foreground">
-                Welcome back, {profile?.full_name || user?.email}!
+            <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto justify-between sm:justify-end">
+              <span className="text-xs sm:text-sm text-muted-foreground truncate max-w-[150px] sm:max-w-none">
+                {profile?.full_name || user?.email}
               </span>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={signOut}
-                className="text-muted-foreground hover:text-foreground"
+                className="text-muted-foreground hover:text-foreground h-8"
               >
-                <LogOut className="w-4 h-4 mr-2" />
-                Sign Out
+                <LogOut className="w-3.5 h-3.5 mr-1.5 sm:mr-2" />
+                <span className="text-xs sm:text-sm">Sign Out</span>
               </Button>
             </div>
           </div>
@@ -334,34 +334,34 @@ export function RecipeDashboard() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
-        <div className="relative rounded-2xl overflow-hidden mb-8 h-64">
+        <div className="relative rounded-2xl overflow-hidden mb-8 min-h-[320px] sm:h-64">
           <img
             src={heroImage}
             alt="Cooking inspiration"
-            className="w-full h-full object-cover"
+            className="w-full h-full absolute inset-0 object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent">
-            <div className="flex flex-col justify-center h-full px-8">
-              <h2 className="text-3xl font-bold text-white mb-2">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent sm:bg-gradient-to-r sm:from-black/60 sm:to-transparent">
+            <div className="flex flex-col justify-center h-full px-6 sm:px-8 py-8 sm:py-0">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 leading-tight">
                 Ready to cook something amazing?
               </h2>
-              <p className="text-white/90 mb-4 max-w-md">
+              <p className="text-sm sm:text-base text-white/90 mb-6 max-w-md">
                 Generate personalized recipes with AI or browse your collection
               </p>
-              <div className="flex gap-3 max-w-lg">
+              <div className="flex flex-col sm:flex-row gap-3 w-full max-w-lg">
                 <Input
                   placeholder="Write a recipe of Biryani..."
                   value={recipePrompt}
                   onChange={(e) => setRecipePrompt(e.target.value)}
-                  className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/70"
+                  className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/70 h-11"
                 />
                 <Button
                   variant="hero"
                   size="hero"
                   onClick={generateAIRecipe}
-                  className="shrink-0"
+                  className="shrink-0 h-11"
                 >
-                  <Sparkles className="w-5 h-5 mr-2" />
+                  <Sparkles className="w-4 h-4 mr-2" />
                   Generate AI Recipe
                 </Button>
               </div>
@@ -377,9 +377,9 @@ export function RecipeDashboard() {
           </TabsList>
 
           <TabsContent value="recipes" className="space-y-6">
-            <div className="flex justify-between items-center">
-              <h3 className="text-2xl font-bold">Your Recipe Collection</h3>
-              <Button variant="outline" onClick={() => setShowAddForm(true)}>
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <h3 className="text-xl sm:text-2xl font-bold">Your Recipe Collection</h3>
+              <Button variant="outline" onClick={() => setShowAddForm(true)} className="w-full sm:w-auto">
                 <Plus className="w-4 h-4 mr-2" />
                 Add Recipe
               </Button>
@@ -495,16 +495,16 @@ export function RecipeDashboard() {
           </TabsContent>
 
           <TabsContent value="discover" className="space-y-6 " >
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
-                <h3 className="text-2xl font-bold mb-2">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">
                   Discover New Recipes
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-sm sm:text-base text-muted-foreground">
                   Explore recipes shared by the community
                 </p>
               </div>
-              <Button variant="outline" onClick={fetchPublicRecipes}>
+              <Button variant="outline" onClick={fetchPublicRecipes} className="w-full sm:w-auto">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Refresh
               </Button>

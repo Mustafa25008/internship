@@ -98,23 +98,23 @@ export function AddRecipeForm({ onClose, onRecipeAdded }: AddRecipeFormProps) {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
       <Card className="w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <div>
-              <CardTitle>Add New Recipe</CardTitle>
-              <CardDescription>Create your own recipe to add to your collection</CardDescription>
+        <CardHeader className="p-4 sm:p-6">
+          <div className="flex items-start justify-between">
+            <div className="flex-1">
+              <CardTitle className="text-xl sm:text-2xl">Add New Recipe</CardTitle>
+              <CardDescription className="text-sm">Create your own recipe to add to your collection</CardDescription>
             </div>
             <Button
               variant="ghost"
               size="sm"
               onClick={onClose}
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground shrink-0"
             >
               <X className="w-4 h-4" />
             </Button>
           </div>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-4 sm:p-6 pt-0 sm:pt-0">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="title">Recipe Title/Name</Label>
@@ -186,19 +186,19 @@ export function AddRecipeForm({ onClose, onRecipeAdded }: AddRecipeFormProps) {
               />
             </div>
 
-            <div className="flex gap-3 pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 pt-4">
               <Button
                 type="button"
                 variant="outline"
                 onClick={onClose}
-                className="flex-1"
+                className="w-full sm:flex-1 order-2 sm:order-1"
               >
                 Cancel
               </Button>
               <Button
                 type="submit"
                 disabled={loading || !formData.title || !formData.ingredients || !formData.instructions}
-                className="flex-1"
+                className="w-full sm:flex-1 order-1 sm:order-2"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 {loading ? 'Adding...' : 'Add Recipe'}
