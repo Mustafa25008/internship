@@ -75,6 +75,7 @@ export function RecipeDashboard() {
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [recipePrompt, setRecipePrompt] = useState<string>("");
   const { toast } = useToast();
+  const [isDisable, setDisable] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -202,7 +203,7 @@ export function RecipeDashboard() {
       });
       return;
     }
-
+    setDisable(true);
     const recipeName = recipePrompt
       .replace(/write a recipe of|recipe of|recipe for|make|cook/gi, "")
       .trim();
@@ -289,6 +290,7 @@ export function RecipeDashboard() {
         description: "Error in generating recipe.",
       });
     }
+    setDisable(false);
   };
 
   if (loading) {
@@ -360,9 +362,10 @@ export function RecipeDashboard() {
                   size="hero"
                   onClick={generateAIRecipe}
                   className="shrink-0 h-11"
+                  disabled={isDisable}
                 >
-                  <Sparkles className="w-4 h-4 mr-2" />
-                  Generate AI Recipe
+                  {/* <Sparkles className="w-4 h-4 mr-2" /> */}
+                  {isDisable ? "Generating..." : "Generate"}
                 </Button>
               </div>
             </div>
