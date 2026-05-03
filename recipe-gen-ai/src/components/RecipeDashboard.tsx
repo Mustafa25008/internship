@@ -364,8 +364,8 @@ export function RecipeDashboard() {
                   className="shrink-0 h-11"
                   disabled={isDisable}
                 >
-                  {/* <Sparkles className="w-4 h-4 mr-2" /> */}
-                  {isDisable ? "Generating..." : "Generate"}
+                  
+                  {isDisable ? "Generating..." : <><Sparkles className="w-4 h-4 mr-1" /> Generate</>}
                 </Button>
               </div>
             </div>
