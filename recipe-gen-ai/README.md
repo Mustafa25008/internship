@@ -68,7 +68,7 @@ Then visit localhost link in your browser.
 ## 📡 n8n Workflow Overview
 
 * **Webhook Trigger** – Accepts topic input from frontend
-* **AI Agent Node** – Generates 3 recipe responses
+* **AI Agent Node** – Generates recipe response
 * **Function Node** – Parses and formats to JSON
 * **Supabase Node** – Stores recipe entries
 * **Response Node** – Sends structured JSON back to the frontend
